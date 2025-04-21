@@ -19,9 +19,12 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
- I am currently a young researcher in  <a href="https://pjlab-adg.github.io/">ADLab</a> at <a href="https://www.shlab.org.cn/">Shanghai AI Laboratory</a>. I earned my MSc degree from [Zhejiang University](https://www.zju.edu.cn/english/) in 2022, where I was a member of the [APRIL Lab](https://april.zju.edu.cn/) under the guidance of [Dr. Yong Liu](https://person.zju.edu.cn/yongliu). Prior to this, I got my bachelor's degree from Zhejiang University in 2019.
 
-My research centers on addressing complex interaction challenges through closed-loop knowledge-driven autonomous driving. I am passionate about the future of autonomous driving and artificial general intelligence (AGI), and I am thrilled to contribute to these rapidly advancing fields.
+ I am a visiting researcher at the Department of Computer Science, University of California, Los Angeles, advised by [Bolei Zhou](https://boleizhou.github.io/). I am studying for PhD degree in [Zhejiang University](https://www.zju.edu.cn/english/) since 2021, where I was a member of the [APRIL Lab](https://april.zju.edu.cn/) under the guidance of [Dr. Yong Liu](https://person.zju.edu.cn/yongliu). I am interning in [ADLab](https://pjlab-adg.github.io/) at [Shanghai AI Laboratory](https://www.shlab.org.cn/) from 2023 to 2025. Prior to this, I got my bachelor's degree from Jianxing campus of Zhejiang University of Technology in 2021 under the guidance of [Prof. Li Yu](https://scholar.google.com.hk/citations?hl=zh-CN&user=CnBn6FwAAAAJ).
+
+
+<!-- 
+My research centers on addressing complex interaction challenges through closed-loop knowledge-driven autonomous driving. I am passionate about the future of autonomous driving and artificial general intelligence (AGI), and I am thrilled to contribute to these rapidly advancing fields. -->
 
 ### Research Interests
 The following are my current research interests:
@@ -29,3 +32,9 @@ The following are my current research interests:
 - Autonomous Driving
 - Emobodied AI
 - Mobile Robots
+
+<div class="row  align-items-center">
+    <div class="col-sm mt-3 mt-md-0">
+        <img class="img-fluid " src="{{ '/assets/img/affiliations/wallpaper.png' | relative_url }}" alt="" title="example image"/>
+    </div>
+</div>

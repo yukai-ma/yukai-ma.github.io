@@ -3,12 +3,12 @@
 # -----------------------------------------------------------------------------
 
 title: blank # the website title (if blank, full name will be used instead)
-first_name: Licheng
+first_name: YUKAI
 middle_name:
-last_name: Wen
+last_name: MA
 email:  # your email address
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Personal website of Licheng Wen, a researcher in the field of autonomous driving and multi-agent systems.
+  Personal website of Yukai Ma, a researcher in the field of autonomous driving and multi-agent systems.
 footer_text: Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. # text displayed in the footer section (supports HTML)
 
 keywords: wen licheng, licheng, jekyll, academic-website, personal website, portfolio-website # add your own keywords or leave empty
@@ -120,7 +120,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Licheng's blog # blog_name will be displayed in your blog page
+blog_name: YUKAI's blog # blog_name will be displayed in your blog page
 blog_nav_title: Blog # your blog must have a title for it to be displayed in the nav bar
 blog_description: Just record some random thoughts. # blog_description will be displayed in your blog page
 permalink: /blog/:year/:title/

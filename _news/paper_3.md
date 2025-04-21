@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2024-01-02 16:00:00+0800
+date: 2024-12-10 s16:00:00+0800
 inline: true
 ---
 
-🎉 Paper <a href="https://doi.org/10.1016/j.aap.2023.107445">How drivers perform under different scenarios: Ability-related driving style extraction for large-scale dataset</a> is published on  <i>Journal of Accident Analysis & Prevention</i>.
+🎉 Paper <a href="https://github.com/yuyang-cloud/Drive-OccWorld"> Driving in the Occupancy World: Vision-Centric 4D Occupancy Forecasting and Planning via World Models for Autonomous Driving</a> is accepted bys  <i>AAAI Oral</i>.
 
