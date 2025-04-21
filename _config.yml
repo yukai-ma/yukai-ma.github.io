@@ -11,12 +11,12 @@ description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Personal website of Yukai Ma, a researcher in the field of autonomous driving and multi-agent systems.
 footer_text: Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. # text displayed in the footer section (supports HTML)
 
-keywords: wen licheng, licheng, jekyll, academic-website, personal website, portfolio-website # add your own keywords or leave empty
+keywords: ma yukai, yukai, matiewa, academic-website, personal website, portfolio-website # add your own keywords or leave empty
 
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: 👨‍💻 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: 👨 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
-url: https://wenlc.cn # the base hostname & protocol for your site
+url: https://yukai-ma.github.io # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/
 last_updated: True # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
@@ -69,11 +69,11 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 # Social integration
 # -----------------------------------------------------------------------------
 
-github_username: zijinoier
+github_username: HR-zju
 gitlab_username:
-twitter_username: zijinoier
+twitter_username: 
 mastodon_username: # your mastodon instance+username in the format instance.tld/@username
-linkedin_username: licheng-wen
+linkedin_username: 
 telegram_username: # your Telegram user name
 scholar_userid: RNnjXTkAAAAJ
 semanticscholar_id: # your Semantic Scholar ID
@@ -104,7 +104,7 @@ youtube_id:
 discord_id: # your discord id (18-digit unique numerical identifier)
 
 contact_note: >
-  Email is the best way to reach me: wenlicheng [at] pjlab dot org dot cn
+  Email is the best way to reach me: yukaima [at] zju dot edu dot cn
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -266,8 +266,8 @@ display_categories: ["知识学习"] # these categories will be displayed on the
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: ["Wen","wen", "Wen*"]
-  first_name: ["Licheng", "licheng"]
+  last_name: ["Ma","ma", "Ma*"]
+  first_name: ["Yukai", "yukai"]
 
   style: apa
   locale: en
