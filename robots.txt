@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://wenlc.cn/sitemap.xml
+Sitemap: https://yukai-ma.github.io/sitemap.xml
