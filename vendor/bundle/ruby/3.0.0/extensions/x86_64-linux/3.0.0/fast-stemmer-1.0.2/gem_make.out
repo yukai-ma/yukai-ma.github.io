@@ -1,0 +1,16 @@
+current directory: /home/mayukai/dev/code/mypage/yukai-ma.github.io/vendor/bundle/ruby/3.0.0/gems/fast-stemmer-1.0.2/ext
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20250905-958579-s522oy.rb extconf.rb
+creating Makefile
+
+current directory: /home/mayukai/dev/code/mypage/yukai-ma.github.io/vendor/bundle/ruby/3.0.0/gems/fast-stemmer-1.0.2/ext
+make DESTDIR\= clean
+
+current directory: /home/mayukai/dev/code/mypage/yukai-ma.github.io/vendor/bundle/ruby/3.0.0/gems/fast-stemmer-1.0.2/ext
+make DESTDIR\=
+compiling porter.c
+compiling porter_wrap.c
+linking shared-object stemmer.so
+
+current directory: /home/mayukai/dev/code/mypage/yukai-ma.github.io/vendor/bundle/ruby/3.0.0/gems/fast-stemmer-1.0.2/ext
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 stemmer.so ./.gem.20250905-958579-zy081t
