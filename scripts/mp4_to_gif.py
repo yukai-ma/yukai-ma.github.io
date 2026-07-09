@@ -111,7 +111,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--width",
         type=int,
-        default=480,
+        default=240,
         help="Output width in pixels, height scales automatically (default: 480, use 0 for original)",
     )
     parser.add_argument(
