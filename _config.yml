@@ -8,7 +8,7 @@ middle_name:
 last_name: MA
 email:  # your email address
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Personal website of Yukai Ma, a researcher in the field of autonomous driving and multi-agent systems.
+  Personal website of Yukai Ma, a researcher in embodied AI, robotics, multi-agent systems, and autonomous driving.
 footer_text: Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. # text displayed in the footer section (supports HTML)
 
 keywords: ma yukai, yukai, matiewa, academic-website, personal website, portfolio-website # add your own keywords or leave empty
@@ -206,6 +206,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - reference
 keep_files:
   - CNAME
   - .nojekyll
@@ -288,6 +289,8 @@ scholar:
   details_link: Details
 
   query: "@*"
+  sort_by: year
+  order: descending
   group_by: year
   group_order: descending
 

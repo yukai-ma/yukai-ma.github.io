@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% capture author_name %}{{ site.first_name | capitalize }} {{ site.last_name | capitalize }}{% endcapture %}
+    <title>{{ author_name | strip }}{% unless page.url == '/' %} · {{ page.title | escape }}{% endunless %}</title>
+    <meta name="description" content="{{ site.description | strip | escape }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="icon" href="{{ '/assets/img/my_photo.jpg' | relative_url }}" type="image/jpeg">
+    <link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
+    {% if jekyll.environment == 'production' %}{% include scripts/analytics.html %}{% endif %}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="masthead">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="home-link" href="{{ '/' | relative_url }}">Homepage</a>
+        <a href="{{ '/' | relative_url }}#about-me">About Me</a>
+        <a href="{{ '/' | relative_url }}#news">News</a>
+        <a href="{{ '/' | relative_url }}#publications">Publications</a>
+        <a href="{{ '/' | relative_url }}#robots">Robots</a>
+        <a href="{{ '/' | relative_url }}#education">Education</a>
+        <a href="{{ '/' | relative_url }}#experience">Experience</a>
+      </nav>
+    </header>
+    {% assign homepage = site.pages | where: 'url', '/' | first %}
+    <div class="academic-shell">
+      <aside class="author-profile" aria-label="About {{ author_name | strip }}">
+        <img class="author-avatar" src="{{ homepage.profile.image | prepend: '/assets/img/' | relative_url }}" alt="{{ author_name | strip }}" width="175" height="175" fetchpriority="high">
+        <div class="author-details">
+          {% if page.url == '/' %}<h1 class="author-name">{{ author_name | strip }}</h1>{% else %}<p class="author-name">{{ author_name | strip }}</p>{% endif %}
+          <p class="author-role">{{ homepage.profile.role }}<br>{{ homepage.profile.institution }}</p>
+          <p class="author-role">{{ homepage.profile.education }}</p>
+          <p class="author-bio"><span>Embodied AI &amp; Robotics</span><span>Autonomous Driving</span></p>
+        </div>
+        <ul class="author-links">
+          <li><a href="mailto:{{ homepage.profile.email | encode_email }}"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>Email</a></li>
+          {% if site.scholar_userid %}<li><a href="https://scholar.google.com/citations?user={{ site.scholar_userid | split: '&' | first }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5L2 9Zm4 2v6c4 3 8 3 12 0v-6M22 9v8"/></svg>Google Scholar</a></li>{% endif %}
+          {% if site.github_username %}<li><a href="https://github.com/{{ site.github_username }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1 .1-2-.5-2.5 3-.4 5.5-1.5 5.5-6A5 5 0 0 0 18.5 6 5 5 0 0 0 18 2s-1 0-4 2a14 14 0 0 0-4 0C7 2 6 2 6 2a5 5 0 0 0-.5 4A5 5 0 0 0 4 9.5c0 4.5 2.5 5.6 5.5 6C9 16 9 17 9 18v4"/></svg>GitHub</a></li>{% endif %}
+        </ul>
+      </aside>
+      <main id="main-content" class="page-content">
+        {{ content }}
+        <footer class="site-footer">
+          <p>&copy; {{ site.time | date: '%Y' }} {{ author_name | strip }}. Built with <a href="https://jekyllrb.com/">Jekyll</a>.</p>
+          <a href="{{ '/' | relative_url }}#about-me">Back to top &uarr;</a>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>

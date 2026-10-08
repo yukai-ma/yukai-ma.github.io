@@ -1,0 +1,42 @@
+---
+---
+{% assign paper_url = entry.demo | default: entry.url | default: entry.html | default: entry.paper %}
+{% if paper_url == blank and entry.arxiv %}{% assign paper_url = entry.arxiv | prepend: 'https://arxiv.org/abs/' %}{% endif %}
+{% if paper_url == blank and entry.doi %}{% assign paper_url = entry.doi | prepend: 'https://doi.org/' %}{% endif %}
+<article class="paper-box{% unless entry.preview %} paper-box-text-only{% endunless %}" id="{{ entry.key }}">
+  {% if entry.preview %}
+  <div class="paper-image">
+    {% if entry.abbr %}<span class="venue-badge">{{ entry.abbr }} {{ entry.year }}</span>{% endif %}
+    {% if paper_url != blank %}<a href="{{ paper_url }}" aria-label="{{ entry.title | strip_html | escape }}">{% endif %}
+    {% if entry.preview contains '://' %}{% assign preview_url = entry.preview %}{% else %}{% assign preview_url = entry.preview | prepend: '/assets/img/publication_preview/' | relative_url %}{% endif %}
+    <img src="{{ preview_url }}" alt="{{ entry.title | strip_html | escape }} — research preview" loading="lazy" decoding="async">
+    {% if paper_url != blank %}</a>{% endif %}
+  </div>
+  {% endif %}
+  <div class="paper-text">
+    {% unless entry.preview %}<p class="paper-venue">{{ entry.abbr | default: entry.journal | default: entry.booktitle }} {{ entry.year }}</p>{% endunless %}
+    <h3 class="paper-title">{% if paper_url != blank %}<a href="{{ paper_url }}">{{ entry.title }}</a>{% else %}{{ entry.title }}{% endif %}</h3>
+    <p class="paper-authors">
+      {%- for author in entry.author_array -%}
+        {%- unless forloop.first -%}, {% endunless -%}
+        {%- assign last_name = author.last | remove: '*' | remove: '†' -%}
+        {%- assign first_name = author.first | remove: '*' | remove: '†' -%}
+        {%- if site.scholar.last_name contains last_name and site.scholar.first_name contains first_name -%}
+          <strong>{{ author.first }} {{ author.last }}</strong>
+        {%- else -%}
+          {{ author.first }} {{ author.last }}
+        {%- endif -%}
+      {%- endfor -%}
+    </p>
+    {% if entry.note %}<p class="paper-note">{{ entry.note }}</p>{% endif %}
+    <div class="paper-links">
+      {% if entry.demo %}<a href="{{ entry.demo }}">Project</a>{% endif %}
+      {% if entry.code != blank %}<a href="{{ entry.code }}">Code</a>{% endif %}
+      {% if entry.arxiv %}<a href="https://arxiv.org/abs/{{ entry.arxiv }}">arXiv</a>{% elsif entry.url %}<a href="{{ entry.url }}">Paper</a>{% elsif entry.paper %}<a href="{{ entry.paper }}">Paper</a>{% elsif entry.doi %}<a href="https://doi.org/{{ entry.doi }}">Paper</a>{% endif %}
+      {% if entry.pdf %}{% if entry.pdf contains '://' %}{% assign pdf_url = entry.pdf %}{% else %}{% assign pdf_url = entry.pdf | prepend: '/assets/pdf/' | relative_url %}{% endif %}<a href="{{ pdf_url }}">PDF</a>{% endif %}
+      {% if entry.video %}<a href="{{ entry.video }}">Video</a>{% endif %}
+    </div>
+    {% if entry.abstract %}<details class="paper-details"><summary>Abstract</summary><p>{{ entry.abstract }}</p></details>{% endif %}
+    {% if entry.bibtex_show %}<details class="paper-details"><summary>BibTeX</summary><pre><code>{{ entry.bibtex | hideCustomBibtex | escape }}</code></pre></details>{% endif %}
+  </div>
+</article>

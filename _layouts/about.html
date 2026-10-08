@@ -1,125 +1,69 @@
 ---
-layout: default
+layout: academic
 ---
+<section id="about-me" class="about-section" aria-label="About me">
+  {{ content }}
+</section>
 
-<head>
-  <style>
-    .clustrmaps-container {
-      display: flex;
-      /* Use Flexbox for alignment */
-      justify-content: center;
-      /* Center horizontally */
-      align-items: center;
-      /* Center vertically */
-    }
-
-    .clustrmaps-globe {
-      width: 50%;
-      /* Adjust the width as needed */
-      height: auto;
-      /* Keeps the aspect ratio intact */
-      overflow: hidden;
-      /* In case of overflow */
-    }
-  </style>
-</head>
-
-<!-- about.html -->
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-      {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
-
-  <article>
-    {% if page.profile -%}
-    <div class="profile float-{%- if page.profile.align == 'left' -%}left{%- else -%}right{%- endif -%}">
-      {%- if page.profile.image %}
-      {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
-
-      {% if page.profile.image_circular %}
-      {%- assign profile_image_class = "img-fluid z-depth-1 rounded-circle" -%}
-      {% else %}
-      {%- assign profile_image_class = "img-fluid z-depth-1 rounded" -%}
-      {% endif %}
-
-      {% include figure.html
-      path=profile_image_path
-      class=profile_image_class
-      alt=page.profile.image -%}
-      {% endif -%}
-      {%- if page.profile.address %}
-      <div class="address">
-        {{ page.profile.address }}
-      </div>
-      {%- endif %}
-    </div>
-    {%- endif %}
-
-    <div class="clearfix">
-      {{ content }}
-    </div>
-
-    <!-- News -->
-    {% if page.news and site.announcements.enabled -%}
-    <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit;">News</a></h2>
-    {%- include news.html limit=true %}
-    {%- endif %}
-
-    <!-- Latest posts -->
-    {% if page.latest_posts -%}
-    <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit;">Latest Posts</a></h2>
-    {%- include latest_posts.html %}
-    {%- endif %}
-
-    <!-- Selected papers -->
-    {% if page.selected_papers -%}
-    <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">Selected Publications</a></h2>
-    {%- include selected_papers.html %}
-    {%- endif %}
-
-    <!-- <h2 id="service" style="color: inherit;">Talks</h2> -->
-    
-    <!-- <p>
-      On October 31st, 2024, I had the honor of presenting a talk titled 
-      <strong>"Empowering Automated Driving with LLMs: A Knowledge-driven Paradigm"</strong> 
-      to <a href="https://www.sae.org/" target="_blank" rel="noopener noreferrer">SAE International</a> 
-      as part of their AI Webinar series.
-    </p>
-    <div class="video-container">
-      <iframe width="100%" height="400"  src="https://www.youtube.com/embed/SfW0quOEzLM?si=CU9a07laEphTYHKN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div> -->
-
-
-    <p></p>
-
-    <p></p>
-    <hr style="width: 100%; margin: 40px 0;">
-
-    <!-- Social -->
-    {%- if page.social %}
-    <div class="social">
-      <div class="contact-icons">
-        {% include social.html %}
-      </div>
-
-      <div class="contact-note">
-        {{ site.contact_note }}
-      </div>
-
-    </div>
-    {%- endif %}
-  </article>
-</div>
-
-<div class="clustrmaps-container">
-  <div class="clustrmaps-globe">
-    <p></p>
-    <!-- <script type="text/javascript" id="clustrmaps"
-      src="//cdn.clustrmaps.com/map_v2.js?cl=080808&w=a&t=tt&d=DdK4bEleGev5v27ZMB_jXRGpdDwAE3KnulBHdoyl8Ps&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=808080"></script> -->
-      <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=yL3p1qWd4_KyLBdGVedkuahUE6p1Xv5FBwJ7EmsrKEY"></script>
+{% if page.news and site.announcements.enabled %}
+<section id="news" aria-labelledby="news-title">
+  <h2 id="news-title">News</h2>
+  <div class="news-box" tabindex="0" role="region" aria-label="Latest news, scroll for older updates">
+    <ul class="news-list">
+      {% assign news = site.news | sort: 'date' | reverse %}
+      {% for item in news %}
+      <li>
+        <time datetime="{{ item.date | date: '%Y-%m-%d' }}">{{ item.date | date: '%Y.%m' }}</time>
+        <div>{% if item.inline %}{{ item.content }}{% else %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% endif %}</div>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
-</div>
+</section>
+{% endif %}
+
+{% if page.selected_papers %}
+<section id="publications" aria-labelledby="publications-title">
+  <div class="section-heading">
+    <h2 id="publications-title">Selected Publications</h2>
+    <a href="{{ '/publications/' | relative_url }}">All publications &rarr;</a>
+  </div>
+  <p class="section-note">* denotes equal contribution.</p>
+  <div class="publications selected-publications">
+    {% bibliography -f {{ site.scholar.bibliography }} -q @*[selected=true]* --template bib-academic --group_by none %}
+  </div>
+</section>
+{% endif %}
+
+<section id="robots" aria-labelledby="robots-title">
+  <h2 id="robots-title">Robots I Have Worked With</h2>
+  <p class="section-note">Robotic platforms I have worked with, from delivery and humanoid robots to custom-built navigation systems.</p>
+  <div class="robot-grid">
+    {% for robot in page.robots %}
+    <article class="robot-card">
+      <img src="{{ robot.image | prepend: '/assets/img/robots/' | relative_url }}" alt="{{ robot.name | escape }}" loading="lazy" width="240" height="190">
+      <h3>{{ robot.name }}</h3>
+      <p>{{ robot.description }}</p>
+      {% if robot.award %}<p class="robot-award">{{ robot.award }}</p>{% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section id="education" aria-labelledby="education-title">
+  <h2 id="education-title">Education</h2>
+  <ul class="experience-list">
+    {% for item in page.education %}
+    <li><span class="experience-date">{{ item.date }}</span><div><strong>{{ item.institution }}</strong><br>{{ item.degree }}<span class="experience-detail">{{ item.detail }}</span></div></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="experience" aria-labelledby="experience-title">
+  <h2 id="experience-title">Experience</h2>
+  <ul class="experience-list">
+    {% for item in page.experience %}
+    <li><span class="experience-date">{{ item.date }}</span><div><strong>{{ item.institution }}</strong>{% if item.role %}<br>{{ item.role }}{% endif %}{% if item.detail %}<span class="experience-detail">{{ item.detail }}</span>{% endif %}</div></li>
+    {% endfor %}
+  </ul>
+</section>
